@@ -89,7 +89,7 @@ def main(N,preOrPost,dataPath,smallestIncrement,coffeeCellSize,whichInformation)
     print()
     print("------------- Fit Parameters ------------")       
     print("\n Slope = {:.2} +/- {:.2}".format(popt[0],perr[1]))
-    print("\n Intercept = {:.2} +/- {:.2}mm".format(popt[1],perr[0]))
+    print("\n Intercept = {:.2} +/- {:.2}{}".format(popt[1],perr[0],units))
     print("\n R^2 = {:.2}".format(r_squared))
     print()
 
