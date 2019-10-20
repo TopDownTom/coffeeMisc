@@ -95,17 +95,15 @@ def main(N,preOrPost,dataPath,smallestIncrement,coffeeCellSize,whichInformation)
 
 
     ##### Plotting #####
-#    input("Press Enter To Continue To Plots....")
     plt.title("{} vs. Grind Setting [{}-Adjustment]".format(pltTitle,preOrPost))
     plt.xlabel("Grind Setting")
     plt.xlim([0,N+1])
     plt.xticks(ticks=grindSetting)
     plt.ylabel("{} [{}]".format(pltTitle,units))
 
-#    plt.errorbar(grindSetting,data, fmt='o', color='black', ecolor='red', capsize=2, label='{}'.format(pltTitle), xerr=smallestIncrement/2, yerr=dataError)
     plt.errorbar(grindSetting,data, fmt='o', color='black', ecolor='red', capsize=2, label='{}'.format(pltTitle), xerr=smallestIncrement/2, yerr=[stdLower,stdUpper])
 
-    for i in range(0,len(avgDiam)):
+    for i in range(0,N):
 
         plt.annotate(data[i],(grindSetting[i]+.1*max(data),data[i]), color='black')
         if (stdUpper[i] > stdLower[i]):
