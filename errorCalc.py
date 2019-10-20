@@ -29,15 +29,16 @@ def posNegError(data,whichInformation):
     diamWeight = np.max(np.ceil(attainable_masses/(coffee_cell_size/1e3)**3))
     diamAverage = np.sum(diameter*diamWeight/np.sum(diamWeight))
 
-    data_weights = surfaces
     data_average = np.sum(surfaces*weights)/np.sum(weights)
     data_stddev = attainableMass.weighted_stddev(surfaces,weights,frequency=True,unbiased=True)
 
     ##### This is stuff for plotting a histogram #####
     if whichInformation == "d":
         data = diameter
+        data_weights = diameter
     elif whichInformation == "s":
         data = surfaces
+        data_weights = surfaces
 
     #Read x range from internal variables
     xmin = np.nanmin(data)
