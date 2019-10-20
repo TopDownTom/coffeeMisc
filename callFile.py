@@ -49,7 +49,7 @@ if __name__ == "__main__":
     print()  
     # Coffee cell size, this value does not seem to change the data in any places larger than hundreths. 
     while True:
-        cellSize = input("Use default coffee cell size of 20 micrometers? (y/n)")
+        cellSize = input("Use default coffee cell size of 20 micrometers? (y/n) ")
         if cellSize not in ('y' , 'n'):
             coffeeCellSize = input("Please enter a size in micrometers: ")
         else:
