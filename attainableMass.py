@@ -10,7 +10,7 @@ from scipy import stats as stats
 import matplotlib.pyplot as plt
 
 
-# This function weights larger particles higher so long as there is more accessible surface are for extraction
+# This function weights larger particles higher so long as there is more accessible surface area for extraction
 def attainable_mass_simulate(volumes):
         
         #This could be done better analytically

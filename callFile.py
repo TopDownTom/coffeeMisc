@@ -46,6 +46,7 @@ if __name__ == "__main__":
             print("Please enter a float, not an integer")
         else:
             break
+
     print()  
     # Coffee cell size, this value does not seem to change the data in any places larger than hundreths. 
     while True:
@@ -55,6 +56,7 @@ if __name__ == "__main__":
         else:
             coffeeCellSize = 20
             break
+
     print()
     # Ask which data is interesting, average diameter or average surface area
     while True:

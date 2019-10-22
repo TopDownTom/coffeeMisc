@@ -28,7 +28,7 @@ def main(N,preOrPost,dataPath,smallestIncrement,coffeeCellSize,whichInformation)
         dataArray = np.array(pd.read_csv("{}/setting{}.csv".format(dataPath,a)))
 
         # retrieve error values from exterior function
-        epos,eneg = errorCalc.posNegError(dataArray,whichInformation)
+        epos,eneg = errorCalc.posNegError(dataArray,whichInformation,coffeeCellSize)
 
         # append value 1 sigma positive and 1 sigma negative the average value calculated above
         stdUpper.append(epos)
@@ -49,7 +49,7 @@ def main(N,preOrPost,dataPath,smallestIncrement,coffeeCellSize,whichInformation)
             data = dataTypes[2]
             pltTitle = "Average Surface Area"
             units = "mm^2"
-        return data, dataError
+        return data
     dataType(whichInformation)
 
 

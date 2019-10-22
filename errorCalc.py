@@ -11,11 +11,10 @@ import definitions
 
 # This code is directly taken from a portion of J Gagne's code
 
-def posNegError(data,whichInformation):
+def posNegError(data,whichInformation,coffeeCellSize):
 
     ## ID, surface, roundness, shortaxis, longaxis, volume, pixelscale
     scale = data[:,6]
-    coffee_cell_size=20
     default_binsize = .1
     default_log_binsize = .05
     default_bin_inflate = 1
@@ -27,7 +26,7 @@ def posNegError(data,whichInformation):
     diameter = 2*np.sqrt(data[:,4]*data[:,3])/scale
     attainable_masses = attainableMass.attainable_mass_simulate(volumes)
 
-    data_weights = np.maximum(np.ceil(attainable_masses/(coffee_cell_size/1e3)**3),1) 
+    data_weights = np.maximum(np.ceil(attainable_masses/(coffeeCellSize/1e3)**3),1) 
 
     # generally how to calculate the average and std_dev value for a given stat
 #    data_average = np.sum(data*data_weights)/np.sum(data_weights)
