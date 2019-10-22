@@ -10,9 +10,11 @@ from scipy import stats as stats
 import matplotlib.pyplot as plt
 
 
+# This function weights larger particles higher so long as there is more accessible surface are for extraction
 def attainable_mass_simulate(volumes):
         
         #This could be done better analytically
+        #100nm water penetration depth limit
         depth_limit = 0.1 #mm
         
         radii = (3.0/4.0*volumes/np.pi)**(1/3)
@@ -24,6 +26,7 @@ def attainable_mass_simulate(volumes):
         
         return reachable_volumes
 
+# Generic weighted standard deviation function
 def weighted_stddev(data, weights, frequency=False, unbiased=True):
         
         #Calculate the bias correction estimator

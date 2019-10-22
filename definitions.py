@@ -12,6 +12,3 @@ def funcLinear(xaxis,slope,intercept):
 
 def funcQuad(xaxis,a,b,c):
     return a*xaxis**2+b*xaxis+c
-
-
-

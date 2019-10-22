@@ -9,6 +9,7 @@ from scipy import stats as stats
 import attainableMass
 import definitions
 
+# This code is directly taken from a portion of J Gagne's code
 
 def posNegError(data,whichInformation):
 
@@ -20,25 +21,23 @@ def posNegError(data,whichInformation):
     default_bin_inflate = 1
     hist_color=[147, 36, 30]
 
+    # convert the raw data into physical values 
     surfaces = data[:,1]/scale**2
     volumes = data[:,5]/scale**3
-    attainable_masses = attainableMass.attainable_mass_simulate(volumes)
-    weights = np.maximum(np.ceil(attainable_masses/(coffee_cell_size/1e3)**3),1)
-
     diameter = 2*np.sqrt(data[:,4]*data[:,3])/scale
-    diamWeight = np.max(np.ceil(attainable_masses/(coffee_cell_size/1e3)**3))
-    diamAverage = np.sum(diameter*diamWeight/np.sum(diamWeight))
+    attainable_masses = attainableMass.attainable_mass_simulate(volumes)
 
-    data_average = np.sum(surfaces*weights)/np.sum(weights)
-    data_stddev = attainableMass.weighted_stddev(surfaces,weights,frequency=True,unbiased=True)
+    data_weights = np.maximum(np.ceil(attainable_masses/(coffee_cell_size/1e3)**3),1) 
+
+    # generally how to calculate the average and std_dev value for a given stat
+#    data_average = np.sum(data*data_weights)/np.sum(data_weights)
+#    data_stddev = attainableMass.weighted_stddev(data,data_weights,frequency=True,unbiased=True)
 
     ##### This is stuff for plotting a histogram #####
     if whichInformation == "d":
         data = diameter
-        data_weights = diameter
     elif whichInformation == "s":
         data = surfaces
-        data_weights = surfaces
 
     #Read x range from internal variables
     xmin = np.nanmin(data)
