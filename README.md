@@ -4,7 +4,7 @@ Firstly I must say this project would not be possible without the incredible pro
 Many parts have been taken directly from his source code which can be found at:
 https://github.com/jgagneastro/coffeegrindsize
 
-My code here simply takes data collected by his coffee grind size app, stored in .csv files, and puts it into a readable form for multiple grind settings. 
+My code here takes data collected by his coffee grind size app, stored in .csv files, and puts it into a readable form for multiple grind settings. 
 Statistics is not something I'm incredibly familiar with, so if I have misrepresented any data here please let me know.
 
 
